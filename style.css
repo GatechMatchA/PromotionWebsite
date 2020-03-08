@@ -48,13 +48,13 @@ img {
 }
 
 .large {
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .lead {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -110,9 +110,10 @@ img {
 .btn-white {
   background: #fff;
   color: var(--orange-color);
-  /* border: var(--orange-color) solid 2px; */
   margin-top: 1rem;
   font-weight: 700;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 .bg-white {
@@ -200,37 +201,34 @@ img {
 /* Intro */
 .intro {
   position: relative;
-  /* animation-name: fadeIn; */
   padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  animation: expand 1.5s ease-in-out forwards;
 }
 
-.intro-inner {
-  display: grid;
-  grid-template-columns: 4fr 4fr;
-  grid-gap: 2rem;
-  align-items: center;
-  padding: rem;
-}
-
-.intro-inner .text {
+.intro .text {
   color: var(--orange-color);
   height: 100%;
-  width: 90%;
+  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: left;
+  text-align: left;
 }
 
-.intro-inner .image {
-  /* display: inline-block;
-  vertical-align: top; */
+.intro .image {
+  display: inline-block;
+  vertical-align: top;
   background-image: url('./img/homepage.png');
   background-repeat: no-repeat;
-  width: 80%;
+  background-position: center center;
+  width: 50%;
   height: 40vh;
+  border: 2px solid var(--primary-color);
 }
 
 /* Video */
@@ -248,14 +246,38 @@ img {
 
 .video-inner .text {
   color: var(--orange-color);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
 }
 
 iframe {
   margin: auto;
-  width: 80%;
+  width: 90%;
   height: 80%;
   border: 5px solid var(--primary-color);
   padding: 10px;
   display: block;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+  }
+
+  .intro .text {
+    width: 100%;
+  }
+  .intro .image {
+    width: 100%;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
